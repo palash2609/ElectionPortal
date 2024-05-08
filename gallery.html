@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election India Gallery</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            position: relative; /* Ensure the container can be a reference for the absolute positioning */
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative; 
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            padding: 20px;
+            padding-bottom: 40px;
+        }
+
+        .swiper-container {
+            /* width: 100%;
+            height: 400px; */
+            position: relative; 
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 10; 
+   
+}
+
+    
+
+       .swiper-pagination .swiper-pagination-bullet {
+    width: 12px; 
+    height: 12px; /* Increase dot size */
+    background-color: rgba(129, 122, 122, 0.913); /* Dot color */
+    border-radius: 50%;
+    margin: 0 8px; /* Adjust dot spacing */
+    transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #fff; /* Active dot color */
+}
+.swiper-pagination .swiper-pagination-bullet:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Hover color */
+}
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+            grid-gap: 20px;
+            padding: 20px;
+            margin-top: 20px; 
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
+        }
+        .gallery-item .overlay {
+            position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            display: flex;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            /* text-align: center; */
+            opacity: 0;
+            transition: bottom 0.3s ease;
+        }
+
+        
+        .overlay h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .gallery-item:hover .overlay {
+            bottom: -50px;
+            opacity: 1;
+        }
+        .overlay p {
+    margin-top: 0;
+    font-size: 16px;
+    text-align: center;
+}
+
+        
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+       
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        header nav {
+        text-align: left; /* Center align the navigation */
+    }
+
+    header nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 20px;
+    }
+
+    header nav ul li {
+        display: inline;
+        margin-right: 10px; 
+    }
+
+    header nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    </style>
+</head>
+<body>
+<header>
+ 
+    <h1>Election India Gallery</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+    <!-- Slider -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="slider7.jpg" alt="Slide 1">
+            </div>
+            <div class="swiper-slide">
+                <img src="slider6.jpg" alt="Slide 1">
+            </div>
+            <div class="swiper-slide">
+                <img src="slider002.jpg" alt="Slide 1">
+            </div>
+            <div class="swiper-slide">
+                <img src="slider4.jpg" alt="Slide 2">
+            </div>
+            <div class="swiper-slide">
+                <img src="slider5.jpg" alt="Slide 3">
+            </div>
+         
+        </div>
+      
+        <div class="swiper-pagination"></div>
+    </div>
+
+
+    
+</header>
+
+<div class="gallery">
+    <div class="gallery-item">
+        <img src="gallery1.jpg" alt="Image 1">
+        <div class="overlay">
+            <p>Announcement of General Elections to Lok Sabha-2024 and State Legislative Assemblies-2024 at Vigyan Bhawan, New Delhi on 16th March, 2024</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="gallery2.jpg" alt="Image 2">
+        <div class="overlay">
+            <p>Announcement of General Elections to Lok Sabha-2024 and State Legislative Assemblies-2024 at Vigyan Bhawan, New Delhi on 16th March, 2024</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="gallery5.jpg" alt="Image 5">
+        <div class="overlay">
+            <p>CEC Shri Rajiv Kumar welcomed the two newly-appointed Election Commissioners, Shri Gyanesh Kumar Dr Sukhbir Singh Sandhu who joined the Commission on 15th March, 2024</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="gallery4.jpg" alt="Image 4">
+        <div class="overlay">
+            <p>Announcement of General Elections to Lok Sabha-2024 and State Legislative Assemblies-2024 at Vigyan Bhawan, New Delhi on 16th March, 2024</p>
+        </div>
+    </div>
+    
+    <div class="gallery-item">
+        <img src="gallery6.jpg" alt="Image 6">
+        <div class="overlay">
+            <p>MoU signing with Indian Banks Association (IBA) and the Department of Posts (DoP) to amplify voter outreach on 26th February, 2024</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="gallery3.jpg" alt="Image 3">
+        <div class="overlay"> <p>ECI conducts briefing sessions for General, Police and Expenditure Observers for the Lok Sabha and State Legislative Assembly Elections - 2024 on 11th March, 2024.</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="gallery7.png" alt="Image 7">
+        <div class="overlay"> 
+            <p>Prime Minister Narendra Modi likely to kick-start rallies from UP's Bulandshar on January 25</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="gallery8.jpg" alt="Image 8">
+        <div class="overlay"> 
+            <p>Announcement of General Elections to Lok Sabha-2024 and State Legislative Assemblies-2024 at Vigyan Bhawan, New Delhi on 16th March, 2024</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="gallery9.jpeg" alt="Image 9">
+        <div class="overlay"> 
+            <p>CEC Shri Rajiv Kumar interacted with NRI Community & embassy officials at The Hague, Netherlands on 13th July,2023. During the interaction, CEC gave an overview of conduct of elections in world’s largest democracy.</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="gallery10.jpg" alt="Image 10">
+        <div class="overlay"> 
+            <p>Announcement of General Elections to Lok Sabha-2024 and State Legislative Assemblies-2024 at Vigyan Bhawan, New Delhi on 16th March, 2024</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    &copy; 2024 Election India. All rights reserved.
+</footer>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: {
+            delay: 3000, // 3 seconds delay between slides
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        }
+    });
+</script>
+</body>
+</html>

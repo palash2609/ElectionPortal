@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Commission of India</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+          .text {
+    text-align: center;
+    /* text-justify: inter-word; */
+    margin: 0 auto;
+    max-width: 800px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+   .media-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .media-container img{
+            max-width: 100%;
+            height: auto;
+            margin: 10px;
+            width: 450px; 
+        }
+        .video-container {
+    position: relative;
+    width: 800px; 
+    height: 450px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    margin-bottom: 50px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+   
+}
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Election Commission of India</h1>
+        <img class="logo" src="./logo.png" alt="ECI Logo" width="100" height="100" >
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <!-- Dropdown menu for Lok Sabha and Rajya Sabha elections -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Elections</a>
+                    <div class="dropdown-content">
+                        <a href="lok_sabha.html">Lok Sabha Elections</a>
+                        <a href="rajya_sabha.html">Rajya Sabha Elections</a>
+                        <a href="local.html">Local Body Elections</a>
+                    </div>
+                </li>
+                
+                <li><a href="registration.html">Registration to Vote</a></li>
+                <li><a href="guide_for_candidates.html">Guide for Voters</a></li>
+                <li><a href="election_calendar.html">Election Calendar</a></li>
+                <li><a href="political_parties.html">Political Parties</a></li>
+                <li><a href="candidates.html">Candidates</a></li>
+                <li><a href="map.html">Interactive Map</a></li>
+                <li><a href="gallery.html">Gallery</a></li> 
+                <li><a href="Abouteci.html">About ECI</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="slider-container">
+        <div class="slideshow-container">
+            <div class="slides fade">
+                <img class="slideimage" src="./hslide3.png" alt="Slide 3">
+              </div>
+
+            <div class="slides fade">
+              <img class="slideimage" src="./hslide1.png" alt="Slide 1">
+            </div>
+          
+            <div class="slides fade">
+              <img class="slideimage" src="./hslide2.jpg" alt="Slide 2">
+            </div>
+          
+            
+
+          
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </section>
+    <section class="text">
+        <p>
+            Our election website, dedicated to the Election Commission of India, is designed with a primary objective: to educate and empower young voters. Through engaging content and user-friendly features, we aim to ease young individuals into the world of elections. We provide comprehensive resources, including guides on voter registration, the voting process and interactive tools, such as an electoral interactive map and candidate profiles, enable users to explore political landscapes and make informed decisions. By fostering understanding and enthusiasm among young voters, we strive to promote active citizenship and ensure a vibrant and inclusive democratic future for India.
+        </p>
+    </section>
+ 
+    <section class="media-container">
+    
+        <img src="ballot.gif" alt="GIF 1">
+        <img src="one-voter-sure.png" alt="voter">
+        <img src="voting.gif" alt="GIF 1">
+    </section>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/to324JIljf8?si=Ra09cK2Lsu2STjk7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <div align="center">
+        <h3>Visit Our State CEO’s Website to Get State Specific Information & Updates</h3>
+        <iframe src="hmap.html" frameborder="0" width="100%" height="600px" scrolling="no"></iframe>
+    </div>
+
+    
+    <footer>
+        <p>&copy; 2024 Election Commission of India</p>
+    </footer>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("slides");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex-1].style.display = "block";  
+        }
+    </script>
+</body>
+</html>

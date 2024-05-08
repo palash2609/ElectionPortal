@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Map</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Interactive Map</h1>
+        <h3>Visit Our State CEO’s Website to Get State Specific Information & Updates</h3>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <main id="main">
+            <div align="center">
+                <div id="visualization"></div>
+            </div>
+            <script>
+                google.charts.load('current', {
+                    'packages':['geochart']
+                });
+                google.charts.setOnLoadCallback(drawVisualization);
+    
+                function drawVisualization() {
+                    var data = google.visualization.arrayToDataTable([
+                        ['State Code', 'State', 'State_ID'],
+                        ['IN-JK','Jammu and Kashmir', 120],
+                        ['IN-PB','Punjab', 300],
+                        ['IN-HP','Himachal Pradesh', 510],
+                        ['IN-UT','Uttarakhand', 208],
+                        ['IN-HR','Haryana', 850],
+                        ['IN-DL','Delhi', 1005],
+                        ['IN-UP', 'Uttar Pradesh', 1330],
+                        ['IN-RJ','Rajasthan', 1000],
+                        ['IN-GJ','Gujarat', 1325],
+                        ['IN-MP','Madhya Pradesh', 700],
+                        ['IN-BR','Bihar', 515],
+                        ['IN-JH','Jharkhand', 1100],
+                        ['IN-CT','Chhattisgarh', 330],
+                        ['IN-MH', 'Maharashtra', 100],
+                        ['IN-OR','Orissa', 133],
+                        ['IN-WB','West Bengal', 1335],
+                        ['IN-GA','Goa', 1010],
+                        ['IN-KA','Karnataka', 500],
+                        ['IN-AP','Andhra Pradesh', 800],
+                        ['IN-KL','Kerala', 311],
+                        ['IN-TN','Tamil Nadu', 130],
+                        ['IN-SK','Sikkim', 724],
+                        ['IN-AR', 'Arunachal Pradesh', 343],
+                        ['IN-AS','Assam', 280],
+                        ['IN-NL','Nagaland', 850],
+                        ['IN-MN','Manipur', 980],
+                        ['IN-TR','Tripura', 700],
+                        ['IN-ML','Meghalaya', 800],
+                        ['IN-MZ','Mizoram', 125],
+                        ['IN-PY','Puducherry', 233],
+                        ['IN-CH','Chandigarh', 230],
+                        ['IN-AN','Andaman and Nicobar Islands',900],
+                        ['IN-DN','Dadra and Nagar Haveli', 1100],
+                        ['IN-DD','Daman and Diu', 229],
+                        ['IN-LD','Lakshadweep', 231]
+                        
+                    ]);
+    
+                    var options = {
+                        region: 'IN',
+                        displayMode: 'regions',
+                        colorAxis: {colors: ['#fff579','#f69679', '#9a95e4', '#ff80b7','#FF0000','#b5df77']},
+                        resolution: 'provinces',
+                        backgroundColor: '#81d4fa',
+                        defaultColor: '#f5f5f5',
+                        width: 940,
+                        height: 680,
+                    };
+    
+                    var geochart = new google.visualization.GeoChart(document.getElementById('visualization'));
+    
+                    // State to URL mapping
+                    var stateURLs = {
+                            'Jammu and Kashmir':'https://ceojk.nic.in/',
+                            'Punjab':'https://www.ceopunjab.gov.in/index',
+                            'Himachal Pradesh':'https://ceohimachal.gov.in/',
+                            'Uttarakhand':'https://ceo.uk.gov.in/',
+                            'Haryana':'https://ceoharyana.gov.in/',
+                            'Delhi':'https://www.ceodelhi.gov.in/',
+                            'Uttar Pradesh': 'https://ceouttarpradesh.nic.in/',
+                            'Rajasthan':'https://ceorajasthan.nic.in/',
+                            'Gujarat':'https://ceo.gujarat.gov.in/Index',
+                            'Madhya Pradesh':'https://ceomadhyapradesh.nic.in/',
+                            'Bihar':'https://ceobihar.nic.in/',
+                            'Jharkhand':'https://ceo.jharkhand.gov.in/',
+                            'Chhattisgarh':'https://ceochhattisgarh.nic.in/',
+                            'Maharashtra':'https://ceoelection.maharashtra.gov.in/ceo/',
+                            'Orissa':'https://ceoodisha.nic.in/main.html',
+                            'West Bengal':'https://ceowestbengal.nic.in//',
+                            'Goa':'https://ceogoa.nic.in/',
+                            'Karnataka':'https://ceo.karnataka.gov.in/',
+                            'Andhra Pradesh':'https://ceoandhra.nic.in/ceoap_new/ceo/index.html',
+                            'Kerala':'https://www.ceo.kerala.gov.in/',
+                            'Tamil Nadu':'https://www.elections.tn.gov.in/',
+                            'Sikkim':'https://ceosikkim.nic.in/',
+                            'Arunachal Pradesh':'https://ceoarunachal.nic.in/',
+                            'Assam':'https://ceoassam.nic.in/',
+                            'Nagaland':'https://ceo.nagaland.gov.in/',
+                            'Manipur':'https://ceomanipur.nic.in/',
+                            'Tripura':'https://ceotripura.nic.in/',
+                            'Meghalaya':'https://ceomeghalaya.nic.in/',
+                            'Mizoram':'https://ceo.mizoram.gov.in/',
+                            'Puducherry':'https://ceopuducherry.py.gov.in/',
+                            'Chandigarh':'https://ceochandigarh.gov.in/',
+                            'Andaman and Nicobar Islands':'https://www.ceoandaman.nic.in/election/',
+                            'Dadra and Nagar Haveli':'https://dnh.gov.in/',
+                            'Daman and Diu':'https://dnh.gov.in/',
+                            'Lakshadweep':'https://ceolakshadweep.gov.in/'
+    
+                    };
+    
+                    // Add an event listener for the 'select' event
+                    google.visualization.events.addListener(geochart, 'select', function() {
+                        var selectedItem = geochart.getSelection()[0];
+                        if (selectedItem) {
+                            var state = data.getValue(selectedItem.row, 1);
+                                if (stateURLs[state]) {
+                                    window.open(stateURLs[state], '_blank'); // Open link in new tab
+                                }
+                        }
+                    });
+    
+                    geochart.draw(data, options);
+                }
+            </script>
+        </main>
+    </section>
+    <footer>
+        <p>&copy; 2024 Election Commission of India</p>
+    </footer>
+</body>
+</html>

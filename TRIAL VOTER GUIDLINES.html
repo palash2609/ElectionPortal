@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voter Guidelines for Indian Elections</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    body {
+        background-image: url("https://media.istockphoto.com/id/1488642770/photo/indian-flag-paint-brush-on-white-background-the-concept-of-india-drawing-brushstroke-grunge.webp?b=1&s=170667a&w=0&k=20&c=-k38a8b5OuBl7B8oPPP3yRVg3dz9p7AdCmRZ-Ir1THQ=" );
+        background-repeat: no-repeat;
+        background-size: cover; 
+        background-attachment: fixed;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+    }
+    h1 {
+        margin-top: 0;
+    }
+    .container {
+        max-width: 700px;
+        max-height:min-content;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #8e8181;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    li {
+        margin-bottom: 20px;
+    }
+    .icon {
+        font-size: 48px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        margin-right: 10px;
+    }
+    .icon:hover {
+        transform: scale(1.2);
+    }
+    .info {
+        display: none;
+        padding-top: 10px;
+    }
+    .show-info {
+        display: block;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Voter Guidelines for Indian Elections</h1>
+    </header>
+    <div class="container">
+        <ul>
+            <li>
+                <h3>Registered Voter</h3>
+                <i class="fas fa-user-check icon" onclick="toggleInfo('registered')"></i>
+                <div id="registered-info" class="info">
+                    <p>Ensure you are registered as a voter before the election day. If not, register yourself as soon as possible.</p>
+                </div>
+            </li>
+            <li>
+                <h3>Check Electoral Roll</h3>
+                <i class="fas fa-file-alt icon" onclick="toggleInfo('check-roll')"></i>
+                <div id="check-roll-info" class="info">
+                    <p>Check your name on the electoral roll to ensure that your name is listed correctly. You can check this information online or at your nearest election office.</p>
+                </div>
+            </li>
+            <li>
+                <h3>Carry Voter ID</h3>
+                <i class="fas fa-id-card icon" onclick="toggleInfo('voter-id')"></i>
+                <div id="voter-id-info" class="info">
+                    <p>Carry your Voter ID card to the polling station as it serves as a valid identity proof for voting. In case you don't have a Voter ID card, you can use other alternative ID proofs specified by the Election Commission.</p>
+                </div>
+            </li>
+            <li>
+                <h3>Verify Candidates</h3>
+                <i class="fas fa-search icon" onclick="toggleInfo('verify-candidates')"></i>
+                <div id="verify-candidates-info" class="info">
+                    <p>Before voting, verify the candidates and parties contesting in your constituency. Understand their agendas and promises to make an informed decision.</p>
+                </div>
+            </li>
+            <li>
+                <h3>Avoid Malpractice</h3>
+                <i class="fas fa-ban icon" onclick="toggleInfo('no-malpractice')"></i>
+                <div id="no-malpractice-info" class="info">
+                    <p>Do not engage in any form of electoral malpractice such as bribing voters, booth capturing, or any other illegal activities. Voting is a right and should be exercised freely and fairly.</p>
+                </div>
+            </li>
+            <li>
+                <h3>Follow Instructions</h3>
+                <i class="fas fa-user-shield icon" onclick="toggleInfo('follow-instructions')"></i>
+                <div id="follow-instructions-info" class="info">
+                    <p>Follow the instructions given by election officials at the polling station. Cooperate with them for a smooth voting process.</p>
+                </div>
+            </li>
+            <li>
+                <h3>No Campaign Material</h3>
+                <i class="fas fa-ban icon" onclick="toggleInfo('no-campaign-material')"></i>
+                <div id="no-campaign-material-info" class="info">
+                    <p>Do not carry any campaign material such as pamphlets, banners, or posters inside the polling station. Maintain the decorum of the election process.</p>
+                </div>
+            </li>
+            <li>
+                <h3>No Selfies</h3>
+                <i class="fas fa-camera-slash icon" onclick="toggleInfo('no-selfies')"></i>
+                <div id="no-selfies-info" class="info">
+                    <p>Do not take selfies inside the polling booth. It is against the rules of the Election Commission and can lead to disqualification of your vote.</p>
+                </div>
+            </li>
+            <li>
+                <h3>Vote Responsibly</h3>
+                <i class="fas fa-vote-yea icon" onclick="toggleInfo('vote-responsibly')"></i>
+                <div id="vote-responsibly-info" class="info">
+                    <p>Cast your vote responsibly after careful consideration of the candidates and their agendas. Your vote matters in shaping the future of the country.</p>
+                </div>
+            </li>
+            <li>
+                <h3>Keep ID Safe</h3>
+                <i class="fas fa-id-card icon" onclick="toggleInfo('keep-id-safe')"></i>
+                <div id="keep-id-safe-info" class="info">
+                    <p>Keep your Voter ID card safe after voting. It may be required for future references and serves as an important document for various purposes.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleInfo(info) {
+            var infoDiv = document.getElementById(info + '-info');
+            infoDiv.classList.toggle('show-info');
+        }
+    </script>
+</body>
+</html>

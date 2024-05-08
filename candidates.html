@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="CandidateProfilesApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidate Profiles</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://wallpaperaccess.com/full/5772.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            color: #fdf8f8;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 1em;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .candidate-profile {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 30px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        .candidate-name {
+            font-size: 30px;
+            font-weight: bold;
+            color: #007bff;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .candidate-bio {
+            margin-top: 20px;
+            color: #000000;
+        }
+        .filter-container {
+            margin-bottom: 20px;
+        }
+        .container{
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>Candidate Profiles</h1>
+    <nav>
+        <ul style="text-align: left;">
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container" ng-controller="CandidateProfilesController">
+    
+    <div class="row filter-container">
+        <div class="col-md-3">
+            <label>Search by Name:</label>
+            <input type="text" class="form-control" ng-model="searchName">
+        </div>
+        <div class="col-md-3">
+            <label>Filter by Party:</label>
+            <select class="form-control" ng-model="selectedParty">
+                <option value="">All</option>
+                <option ng-repeat="party in parties" value="{{party}}">{{party}}</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label>Sort by:</label>
+            <select class="form-control" ng-model="sortBy">
+                <option value="name">Name</option>
+                <option value="party">Party</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label>Items per page:</label>
+            <select class="form-control" ng-model="itemsPerPage" ng-init="itemsPerPage = 3">
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="$scope.filteredCandidates.length">All</option> 
+            </select>
+        </div>
+    </div>
+    <!-- Candidate profiles -->
+    <div class="candidate-profile" ng-repeat="candidate in filteredCandidates | filter:searchName | filter:selectedParty | orderBy:sortBy | limitTo: itemsPerPage : currentPage * itemsPerPage">
+        <div class="candidate-name" ng-click="openDetailsModal(candidate)">{{ candidate.name }}</div>
+        <img ng-src="{{ candidate.photoUrl }}" alt="{{ candidate.name }}" style="max-width: 100%; height: 500px;">
+        <div>Party: {{ candidate.party }}</div>
+        <div class="candidate-bio">
+            <h3>Biography:</h3>
+            <p>{{ candidate.biography }}</p>
+        </div>
+        <div>
+            <h3>Campaign Promises:</h3>
+            <ul>
+                <li ng-repeat="promise in candidate.campaignPromises">{{ promise }}</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Past Achievements:</h3>
+            <ul>
+                <li ng-repeat="achievement in candidate.pastAchievements">{{ achievement }}</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Endorsements:</h3>
+            <ul>
+                <li ng-repeat="endorsement in candidate.endorsements">{{ endorsement }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Election Commission of India</p>
+</footer>
+
+<!-- Candidate details modal template -->
+<script type="text/ng-template" id="candidateDetailsModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{ candidate.name }}</h3>
+    </div>
+    <div class="modal-body">
+        <img ng-src="{{ candidate.photoUrl }}" alt="{{ candidate.name }}" style="max-width: 100%; height: auto;">
+        <p>Party: {{ candidate.party }}</p>
+        <p>{{ candidate.biography }}</p>
+        <h4>Campaign Promises:</h4>
+        <ul>
+            <li ng-repeat="promise in candidate.campaignPromises">{{ promise }}</li>
+        </ul>
+        <h4>Past Achievements:</h4>
+        <ul>
+            <li ng-repeat="achievement in candidate.pastAchievements">{{ achievement }}</li>
+        </ul>
+        <h4>Endorsements:</h4>
+        <ul>
+            <li ng-repeat="endorsement in candidate.endorsements">{{ endorsement }}</li>
+        </ul>
+    </div>
+</script>
+
+<script>
+    angular.module('CandidateProfilesApp', ['ui.bootstrap'])
+    .controller('CandidateProfilesController', function($scope, $uibModal) {
+    //    Data of Candidates:
+        $scope.candidates = [
+    { 
+        name: 'Arvind Kejriwal', 
+        party: 'Aam Aadmi Party (AAP)', 
+        biography: 'Arvind Kejriwal is an Indian politician and a former bureaucrat who is the current and 7th Chief Minister of Delhi since February 2015.', 
+        campaignPromises: ['Improving healthcare infrastructure', 'Providing quality education for all', 'Enhancing public transportation'], 
+        pastAchievements: ['Implemented Mohalla Clinics providing free primary healthcare services', 'Introduced reforms in the education sector including revamping government schools'], 
+        endorsements: ['Support from various social activists and intellectuals'] ,
+        photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Arvind_Kejriwal_2022_Official_Portrail.jpg'
+    },
+    { 
+        name: 'Mamata Banerjee', 
+        party: 'All India Trinamool Congress (AITC)', 
+        biography: 'Mamata Banerjee is an Indian politician who has been serving as the 8th and current Chief Minister of West Bengal since 2011.', 
+        campaignPromises: ['Promoting industrial growth', 'Empowering women and minorities', 'Ensuring inclusive development'], 
+        pastAchievements: ['Implemented various welfare schemes for the poor and marginalized', 'Worked towards improving infrastructure and connectivity in West Bengal'], 
+        endorsements: ['Strong support from grassroots workers and local communities'],
+        photoUrl: 'https://bsmedia.business-standard.com/_media/bs/img/article/2023-08/25/full/1692964344-2782.jpg'
+    },
+    { 
+        name: 'Yogi Adityanath', 
+        party: 'Bharatiya Janata Party (BJP)', 
+        biography: 'Yogi Adityanath is an Indian monk and politician who is the current and 22nd Chief Minister of Uttar Pradesh since March 2017.', 
+        campaignPromises: ['Ensuring law and order', 'Promoting religious and cultural heritage', 'Fostering economic development'], 
+        pastAchievements: ['Implemented measures to combat crime and improve policing', 'Initiated various infrastructural projects for development'], 
+        endorsements: ['Supported by BJP leaders and Hindutva organizations'],
+        photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Yogi_Adithyanath_in_Uttar_Pradesh_2023.jpg/220px-Yogi_Adithyanath_in_Uttar_Pradesh_2023.jpg'
+    },
+    { 
+        name: 'Priyanka Gandhi Vadra', 
+        party: 'Indian National Congress (INC)', 
+        biography: 'Priyanka Gandhi Vadra is an Indian politician and the general secretary of the All India Congress Committee in charge of Uttar Pradesh East.', 
+        campaignPromises: ['Reviving agriculture and rural economy', 'Empowering youth and women', 'Strengthening social welfare programs'], 
+        pastAchievements: ['Worked for grassroots level party organization', 'Advocated for issues related to farmers and marginalized communities'], 
+        endorsements: ['Backed by Congress party leaders and supporters'],
+        photoUrl: 'https://c.ndtvimg.com/2023-11/u44s1ef8_priyanka-gandhi_625x300_07_November_23.jpg'
+    },
+    { 
+        name: 'Amit Shah', 
+        party: 'Bharatiya Janata Party (BJP)', 
+        biography: 'Amit Shah is an Indian politician and the current Minister of Home Affairs, in office since May 2019.', 
+        campaignPromises: ['Strengthening national security', 'Implementing economic reforms', 'Promoting cultural integration'], 
+        pastAchievements: ['Played a key role in the BJP\'s electoral successes', 'Implemented various development projects in Gujarat'], 
+        endorsements: ['Supported by BJP leadership and grassroots workers'],
+        photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Union_Minister_for_Home_Affairs_%28cropped%29.jpg/220px-Union_Minister_for_Home_Affairs_%28cropped%29.jpg'
+    },
+    { 
+        name: 'Smriti Irani', 
+        party: 'Bharatiya Janata Party (BJP)', 
+        biography: 'Smriti Irani is an Indian politician and former model, television actress, and producer.', 
+        campaignPromises: ['Improving education quality', 'Empowering women and youth', 'Enhancing healthcare infrastructure'], 
+        pastAchievements: ['Served as the Minister of Human Resource Development', 'Initiated skill development programs for youth'], 
+        endorsements: ['Endorsed by BJP leaders and supporters'],
+        photoUrl: 'https://pbs.twimg.com/profile_images/1692025304217493504/2lui69aQ_400x400.jpg'
+    },
+    { 
+        name: 'Rahul Gandhi', 
+        party: 'Indian National Congress (INC)', 
+        biography: 'Rahul Gandhi is an Indian politician and a member of the Indian Parliament, representing the constituency of Wayanad, Kerala.', 
+        campaignPromises: ['Addressing unemployment', 'Implementing farmer-friendly policies', 'Strengthening social welfare schemes'], 
+        pastAchievements: ['Served as the Vice-President of the Indian National Congress', 'Advocated for reforms in various sectors'], 
+        endorsements: ['Supported by Congress party leaders and workers'],
+        photoUrl: 'https://img.ap7am.com/bimg/cr-2024032766043c91ac093.jpg'
+    },
+    { 
+        name: 'Akhilesh Yadav', 
+        party: 'Samajwadi Party (SP)', 
+        biography: 'Akhilesh Yadav is an Indian politician and a member of the Samajwadi Party.', 
+        campaignPromises: ['Promoting inclusive development', 'Fostering economic growth', 'Ensuring social justice'], 
+        pastAchievements: ['Served as the Chief Minister of Uttar Pradesh', 'Implemented infrastructure projects and social welfare schemes'], 
+        endorsements: ['Backed by Samajwadi Party leaders and cadres'],
+        photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Akhilesh_Yadav_CMO.jpg' 
+    }
+];
+
+        // Get unique party names for filter options
+        $scope.parties = Array.from(new Set($scope.candidates.map(candidate => candidate.party)));
+
+        // Filter candidates based on selected party
+        $scope.filteredCandidates = $scope.candidates;
+
+
+        // Open candidate details modal
+        $scope.openDetailsModal = function(candidate) {
+            var modalInstance = $uibModal.open({
+                templateUrl: 'candidateDetailsModal.html',
+                controller: 'CandidateDetailsModalController',
+                resolve: {
+                    candidate: function() {
+                        return candidate;
+                    }
+                }
+            });
+        };
+
+        // Candidate details modal controller
+        angular.module('CandidateProfilesApp').controller('CandidateDetailsModalController', function($scope, $uibModalInstance, candidate) {
+            $scope.candidate = candidate;
+
+            $scope.close = function() {
+                $uibModalInstance.dismiss('cancel');
+            };
+        });
+    });
+</script>
+</body>
+</html>

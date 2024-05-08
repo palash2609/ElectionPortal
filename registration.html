@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration to Vote</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="registration.js" defer></script>
+    <style>
+     
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background-image: url('https://wallpaperaccess.com/full/5772.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif; 
+        }
+  
+        h1 {
+       
+          
+            text-align: center;
+         
+        }
+        h2
+        {
+            font-family: 'Laterlocks'; 
+            font-size: 25px; 
+        }
+        footer {
+            margin-top: auto; 
+            background-color: #333; 
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+        #registrationLink {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #333;
+            border-radius: 5px; 
+            background-color: #fff;
+            color: #333; /* Text color */
+            text-decoration: none; 
+            transition: background-color 0.3s ease;
+            margin-top: 20px; 
+            font-size: 18px; 
+            margin-top: 160px; 
+        }
+        
+        section {
+            padding: 20px;
+            /* background-color: rgba(255, 255, 255, 0.8);  */
+            border-radius: 10px;
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  */
+            text-align: center; 
+        }
+        #registrationLink:hover {
+            background-color: #c5e0f8;
+         
+        }
+        ul.steps {
+            list-style-type: none; 
+            padding: 0;
+            margin-bottom: 20px;
+            font-size: 18px;
+            text-align: left;
+            border: 1px solid #333; 
+            border-radius: 5px; 
+            padding: 10px; 
+            max-width: 500px; 
+            margin: auto; 
+            background-color: rgba(255, 255, 255, 0.9); 
+        }
+
+        ul.steps li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+            position: relative; 
+            padding-left: 20px; 
+        }
+        
+        ul.steps li::before {
+            content: "\2022"; 
+            font-size: 8px; 
+            position: absolute; 
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #333;
+            margin-right: 10px; 
+        }
+        h2.underline {
+            text-decoration: underline; 
+            /* border-bottom: 1px solid #000;  */
+            display: inline-block; 
+            padding-bottom: 5px; 
+            /* margin-bottom: 20px;  */
+            margin-bottom: 140px; 
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Registration to Vote</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+        <body>
+            <h2 class="underline">STEPS FOR VOTER REGISTRATION</h2>
+        <ul class="steps">
+            <li>Step 1: Fill out the voter registration form.</li>
+            
+            <li>Step 2: Submit the completed form.</li>
+            <li>Step 3: Await confirmation of your voter registration.</li>
+            <li>Step 4: Receive your voter ID card.</li>
+        </ul>
+            
+            <a href="http://localhost/form.html" id="registrationLink" target="_blank">REGISTRATION</a>
+            
+        
+        </html>
+        <div id="registrationMessage"></div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Election Commission of India</p>
+    </footer>
+</body>
+</html>

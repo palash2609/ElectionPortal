@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQs - Election Commission of India</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('https://wallpaperaccess.com/full/5772.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #333; /* Solid color for header */
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+    }
+
+    header h1 {
+        margin-bottom: 10px; /* Add margin between title and home link */
+    }
+
+    header nav {
+        text-align: left; /* Center align the navigation */
+    }
+
+    header nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    header nav ul li {
+        display: inline;
+        margin-right: 10px; /* Add some space between menu items */
+    }
+
+    header nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background color */
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-box {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .faq-question {
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .faq-answer {
+        display: none;
+        padding-top: 10px;
+    }
+
+    .faq-question::after {
+        content: "\25BC"; /* Down arrow */
+        float: right;
+    }
+
+    .faq-question.active::after {
+        content: "\25B2"; /* Up arrow */
+    }
+
+    footer {
+        background-color: #333; /* Solid color for footer */
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Election Commission of India</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Frequently Asked Questions</h2>
+    
+    <div class="faq-box">
+        <div class="faq-question" onclick="toggleAnswer(this)">How can I register to vote?</div>
+        <div class="faq-answer">To register to vote, you need to fill out a voter registration form available at your nearest electoral office or online on the official website of the Election Commission of India. You will need to provide proof of identity and address.</div>
+    </div>
+    
+    <div class="faq-box">
+        <div class="faq-question" onclick="toggleAnswer(this)">When are the next Lok Sabha elections scheduled?</div>
+        <div class="faq-answer">The schedule for Lok Sabha elections varies. You can check the Election Commission of India's website for the latest election schedule.</div>
+    </div>
+    
+    <div class="faq-box">
+        <div class="faq-question" onclick="toggleAnswer(this)">How can I apply for a voter ID card?</div>
+        <div class="faq-answer">You can apply for a voter ID card through the online portal provided by the Election Commission of India. Alternatively, you can visit your nearest electoral office to apply in person.</div>
+    </div>
+
+    <div class="faq-box">
+        <div class="faq-question" onclick="toggleAnswer(this)">What documents are required for voter registration?</div>
+        <div class="faq-answer">To register as a voter, you need to provide proof of identity and proof of address. Documents such as Aadhar card, passport, driving license, or utility bills can be submitted as proof.</div>
+    </div>
+    
+    <div class="faq-box">
+        <div class="faq-question" onclick="toggleAnswer(this)">How do I check my voter registration status?</div>
+        <div class="faq-answer">You can check your voter registration status online on the Election Commission of India's website by entering your details such as name, date of birth, and state.</div>
+    </div>
+    
+    <div class="faq-box">
+        <div class="faq-question" onclick="toggleAnswer(this)">Can I vote if I am living abroad?</div>
+        <div class="faq-answer">Yes, eligible Indian citizens living abroad can vote in elections through the "Election Commission of India Overseas" program. They need to register as overseas voters and cast their vote through postal ballots.</div>
+    </div>
+    
+    <div class="faq-box">
+        <div class="faq-question" onclick="toggleAnswer(this)">What is the voting age in India?</div>
+        <div class="faq-answer">The minimum voting age in India is 18 years. Any citizen who has attained the age of 18 on the qualifying date is eligible to register as a voter and cast their vote.</div>
+    </div>
+    
+    <div class="faq-box">
+        <div class="faq-question" onclick="toggleAnswer(this)">How can I find my polling station?</div>
+        <div class="faq-answer">You can find your polling station by using the "Voter Helpline" app provided by the Election Commission of India. Alternatively, you can check the polling station details on the electoral roll available at your nearest electoral office.</div>
+    </div>
+    
+    <div class="faq-box">
+        <div class="faq-question" onclick="toggleAnswer(this)">What is NOTA?</div>
+        <div class="faq-answer">NOTA stands for "None of the Above." It is an option provided on electronic voting machines (EVMs) for voters who do not wish to vote for any of the candidates contesting in the election.</div>
+    </div>
+    
+    <div class="faq-box">
+        <div class="faq-question" onclick="toggleAnswer(this)">Can I vote without a voter ID card?</div>
+        <div class="faq-answer">Yes, you can vote without a voter ID card if your name is on the electoral roll and you have an alternative form of identification recognized by the Election Commission of India.</div>
+    </div>
+    
+</div>
+
+<footer>
+    <p>&copy; 2024 Election Commission of India</p>
+</footer>
+
+<script>
+    function toggleAnswer(element) {
+        var answer = element.nextElementSibling;
+        element.classList.toggle('active');
+        if (answer.style.display === "none") {
+            answer.style.display = "block";
+        } else {
+            answer.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

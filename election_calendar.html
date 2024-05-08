@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar 2024</title>
+    <link rel="stylesheet" href="calendar.css">
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://wallpaperaccess.com/full/5772.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            margin: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            color: #fdf8f8;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 1em;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+      
+        nav ul li a[href="index.html"] {
+            color: #fff;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+        
+        /* Style for the translucent white box */
+        .month-box {
+            background-color: rgba(255, 255, 255, 0.99); /* White with 70% opacity */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Calendar 2024</h1>
+        <nav>
+            <ul style="text-align: left;">
+             
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="calendar">
+        <div class="year">2024</div>
+        <!-- Translucent white box containing months -->
+        <div class="month-box">
+            <div class="months">
+                <!-- Months will be dynamically generated here -->
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Calendar</p>
+    </footer>
+
+    <div id="event-info"></div>
+    <script src="./calendar.js"></script>
+</body>
+</html>

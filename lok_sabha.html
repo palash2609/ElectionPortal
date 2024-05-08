@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lok Sabha Elections</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+          body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://wallpaperaccess.com/full/5772.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            margin: 0;
+        }
+        header nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    header nav ul li {
+        display: inline;
+        margin-right: 10px; 
+    }
+
+    header nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+
+        .logo {
+            height: 50px; 
+            width: auto; 
+            margin-right: 10px; 
+        }
+
+        .party {
+            display: inline-block;
+            margin-right: 20px; 
+            position: relative; 
+            vertical-align: top; 
+        }
+
+        .party-image {
+            width: 300px; 
+            height: 200px; 
+            transition: transform 0.3s ease;
+            margin-bottom: 20px; 
+            display: block; 
+        }
+
+        .party-image:hover {
+            transform: scale(1.2); 
+        }
+
+        .additional-info {
+            font-family: Arial;
+            display: none; 
+            width: 300px;
+            height: 150px;
+            background-color: rgba(255, 255, 255, 0.9); 
+            position: absolute;
+            top: calc(100% + 10px); 
+            left: 50%; 
+            transform: translateX(-50%);
+            padding: 10px;
+            overflow-y: auto; 
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            z-index: 1;
+        }
+
+        .show-info {
+            display: block !important; 
+        }
+
+        footer {
+            background-color: #333; 
+            color: white; 
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+
+        main {
+            min-height: calc(100vh - 250px); 
+            padding-bottom: 250px; 
+        }
+
+        
+        .white-box {
+            background-color: rgba(255, 255, 255, 0.6); 
+            padding: 20px; 
+            border-radius: 10px; 
+            margin-bottom: 20px; 
+            border: 1px solid #ccc; 
+        }
+        h2 {
+            text-decoration: underline; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lok Sabha Elections</h1>
+        <nav>
+            <ul style="text-align: left;">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <main>
+        <!-- Translucent white box around the "About" section -->
+        <div class="white-box">
+            <section id="about">
+                <h2 style="font-family: Arial;">About <a href="https://en.wikipedia.org/wiki/Lok_Sabha" target="_blank" style="text-decoration: none; color: #0000EE;">Lok Sabha</a> Elections</h2>
+                <p style="font-family: Arial;">
+                    The <a href="https://en.wikipedia.org/wiki/Lok_Sabha" target="_blank" style="text-decoration: none; color: #0000EE;">Lok Sabha</a> is the lower house of India's Parliament, composed of elected representatives. It plays a vital role in the country's legislative process, including making laws, approving budgets, and overseeing the government. Members of the <a href="https://en.wikipedia.org/wiki/Lok_Sabha" target="_blank" style="text-decoration: none; color: #0000EE;">Lok Sabha</a> are elected through general elections held every five years, representing various constituencies across India.
+                    <br><br>
+                    The <a href="https://en.wikipedia.org/wiki/Lok_Sabha" target="_blank" style="text-decoration: none; color: #0000EE;">Lok Sabha</a> holds significant power, including the ability to form governments and enact legislation. It debates and discusses important national issues, reflecting the diverse interests and concerns of India's population. Through its proceedings, the <a href="https://en.wikipedia.org/wiki/Lok_Sabha" target="_blank" style="text-decoration: none; color: #0000EE;">Lok Sabha</a> contributes to shaping the country's policies and direction.
+                    <br><br>
+                    As the primary legislative body in India, the <a href="https://en.wikipedia.org/wiki/Lok_Sabha" target="_blank" style="text-decoration: none; color: #0000EE;">Lok Sabha</a> plays a crucial role in the functioning of the country's democracy.
+                </p>
+            </section>
+        </div>
+        
+        <!-- Translucent white box around the "Parties" section -->
+        <div class="white-box">
+            <section id="parties">
+                <h2>Political Parties</h2>
+                <div class="party">
+                    <img src="https://images.news18.com/ibnlive/uploads/2021/02/1614153935_51olnod-qjl._sl1132_.jpg" alt="Political Party" class="party-image" onclick="toggleInfo(this)">
+                    <p class="additional-info" id="additional-info">
+                        The BSP states that it represents the people at the lowest levels of the Hindu social system—those officially designated as members of the Scheduled Castes, Scheduled Tribes, and Other Backward Classes—as well as other religious and social minorities.
+                    </p>
+                </div>
+                <div class="party">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthemayanagari.com%2Fwp-content%2Fuploads%2F2021%2F03%2FBjp-Flag.png&f=1&nofb=1&ipt=25adfb3ee1151fa3b8c85940d8f29b6a1498aec0fbc605cb5df73596f353516b&ipo=images" alt="Political Party" class="party-image" onclick="toggleInfo(this)">
+                    <p class="additional-info" id="additional-info-2">
+                        Bharatiya Janata Party (BJP), pro-Hindu political party of postindependence India. The party has enjoyed broad support among members of the higher castes and in northern India. It has attempted to attract support from lower castes, particularly through the appointment of several lower-caste members to prominent party positions.
+                    </p>
+                </div>
+                <div class="party">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.crwflags.com%2Ffotw%2Fimages%2Fi%2Fin%257Dcpi!1.gif&f=1&nofb=1&ipt=d4cd6010b726ddbba34b1ff9fc97b341531eee7da9fda59f101e313e3be6f0ab&ipo=images" alt="Political Party" class="party-image" onclick="toggleInfo(this)">
+                    <p class="additional-info" id="additional-info-3">
+                        The CPI’s initial objectives combined militant anti-imperialist patriotism with internationalism to create a movement parallel to the nonviolent civil disobedience (satyagraha) campaigns led by Mohandas K. Gandhi and the Indian National Congress (Congress Party).
+                    </p>
+                </div>
+                <div class="party">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp6933907.jpg&f=1&nofb=1&ipt=361910fe5f45a3e642729cd976ea9fda0d406cd8d7216c9c2f2dd26f8e78927f&ipo=images" alt="Political Party" class="party-image" onclick="toggleInfo(this)">
+                    <p class="additional-info" id="additional-info-4">
+                        Indian National Congress, broadly based political party of India. Formed in 1885, the Indian National Congress dominated the Indian movement for independence from Great Britain. It subsequently formed most of India’s governments from the time of independence and often had a strong presence in many state governments.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Lok Sabha Elections. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleInfo(element) {
+            var info = element.nextElementSibling;
+            info.classList.toggle("show-info");
+        }
+    </script>
+</body>
+</html>
